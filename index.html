@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loui | Official</title>
+    <style>
+        :root {
+            --primary-red: #ff0000;
+            --bg: #050505;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body {
+            background: var(--bg);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #600 0%, transparent 70%);
+            filter: blur(90px);
+            z-index: -1;
+            animation: move 15s infinite alternate;
+            opacity: 0.4;
+        }
+
+        @keyframes move {
+            0% { top: -10%; left: -5%; }
+            100% { top: 75%; left: 75%; }
+        }
+
+        .header-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            padding: 60px 30px;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(255, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            background: linear-gradient(to bottom, #fff 30%, #ff0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 35px;
+        }
+
+        /* Контейнер для кнопок */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        @media (min-width: 480px) {
+            .button-group { flex-direction: row; justify-content: center; }
+        }
+
+        .tg-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            width: 100%;
+            min-width: 180px;
+        }
+
+        /* Кнопка лички - залитая */
+        .btn-main {
+            background: var(--primary-red);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+        }
+
+        /* Кнопка канала - контурная */
+        .btn-channel {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .tg-button svg {
+            fill: currentColor;
+            width: 20px;
+            height: 20px;
+        }
+
+        .tg-button:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 30px white;
+            transform: translateY(-3px);
+            border-color: white;
+        }
+
+        /* История */
+        .story-section {
+            min-height: 100vh;
+            padding: 100px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .story-container {
+            max-width: 800px;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #ccc;
+            border-left: 2px solid var(--primary-red);
+            padding-left: 30px;
+        }
+
+        .typing-text { white-space: pre-wrap; }
+        .typing-text::after {
+            content: '_';
+            color: var(--primary-red);
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="blob"></div>
+
+    <section class="header-section">
+        <div class="glass-card">
+<h1>loui</h1>
+            <div class="button-group">
+                <a href="https://t.me/suckloui" class="tg-button btn-main">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-1.603 7.561c-.121.547-.445.683-.905.424l-2.441-1.8-1.178 1.135c-.13.13-.239.239-.489.239l.175-2.481 4.517-4.08c.196-.174-.043-.27-.303-.096l-5.584 3.516-2.405-.751c-.523-.163-.533-.523.109-.773l9.392-3.62c.435-.158.815.103.682.864z"/></svg>
+                    Suckloui
+                </a>
+                <a href="https://t.me/твой_канал" class="tg-button btn-channel">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-1.603 7.561c-.121.547-.445.683-.905.424l-2.441-1.8-1.178 1.135c-.13.13-.239.239-.489.239l.175-2.481 4.517-4.08c.196-.174-.043-.27-.303-.096l-5.584 3.516-2.405-.751c-.523-.163-.533-.523.109-.773l9.392-3.62c.435-.158.815.103.682.864z"/></svg>
+                   Louichannel
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-container">
+            <div id="story-text" class="typing-text"></div>
+        </div>
+    </section>
+
+    <script>
+        const text = "Мой путь начался в 24-м году в сфере скама. Прошел через несколько команд, где общая прибыль вышла средней, но опыт оказался бесценным.\n\nЗатем я ушел в арбитраж трафика, изучая механизмы привлечения аудитории. После этого этапа я запустил собственный магазин спортивной одежды, реализовав себя в товарном бизнесе.\n\nСледующим шагом стал трейдинг — глубокое погружение в рынок и аналитику. Сейчас мой основной фокус направлен на P2P. \n\nЭто не финал, это только развитие.";
+        let index = 0;
+        const target = document.getElementById("story-text");
+        let started = false;
+
+        function typeWriter() {
+            if (index < text.length) {
+                target.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 35);
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    started = true;
+                    typeWriter();
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(target);
+    </script>
+
+</body>
+</html>
